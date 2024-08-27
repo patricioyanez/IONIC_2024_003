@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'dos',
     loadChildren: () => import('./dos/dos.module').then( m => m.DosPageModule)
   },
+  {
+    path: 'tres',
+    loadChildren: () => import('./tres/tres.module').then( m => m.TresPageModule)
+  },
 ];
 
 @NgModule({

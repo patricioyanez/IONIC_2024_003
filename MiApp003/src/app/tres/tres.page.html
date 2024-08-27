@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Tres</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="menu"></ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h1>Información</h1>
+
+  <label>Nombre</label>
+  <ion-input type="text" placeholder="Ingrese su nombre"></ion-input>
+
+  <ion-input type="text" placeholder="Ingrese su apellido" label="Apellido"></ion-input>
+  <ion-input type="number" placeholder="Ingrese su edad" label="Edad"></ion-input>
+  <ion-input type="email" placeholder="Ingrese su correo" label="Email"></ion-input>
+  <ion-input type="email" placeholder="Ej: email@correo.cl" 
+                          label="Email 2"
+                          labelPlacement="floating"></ion-input>
+
+
+</ion-content>
