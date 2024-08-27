@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Menú</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Opciones</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-button [routerLink]="['/uno']">
+        Ver Botones
+      </ion-button>
+    </ion-item>
+
+    <ion-item>
+      <ion-button [routerLink]="['/dos']">
+        Ver form en blanco (back button)
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
