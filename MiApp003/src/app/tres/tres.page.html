@@ -20,6 +20,23 @@
   <ion-input type="email" placeholder="Ej: email@correo.cl" 
                           label="Email 2"
                           labelPlacement="floating"></ion-input>
+  <ion-input type="email" placeholder="Ej: email@correo.cl" 
+                          label="Email 3"
+                          labelPlacement="fixed"></ion-input>
 
+  <ion-input type="text" placeholder="Carrera" [clearInput]="true"></ion-input>
+  <ion-input type="text" placeholder="Comentario" [counter]="true" maxlength="30"></ion-input>
+
+  <ion-input type="number" placeholder="Valor Mensual" fill="solid"></ion-input>
+  <ion-input type="number" placeholder="Valor Anual" fill="outline" color="success"></ion-input>
+
+  <ion-item>
+    
+    <ion-label>Seleccione fecha</ion-label>
+    <ion-datetime display-format="DD.MM.YYYY HH:mm">
+      <span slot="time-label">Hora</span>
+    </ion-datetime>
+
+  </ion-item>
 
 </ion-content>
