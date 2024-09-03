@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>cinco</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="menu"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-button id="present-alert">Alerta</ion-button>
+  <ion-alert trigger="present-alert"
+              header="Ejemplo de alerta"
+              subHeader="Mensaje de alerta"
+              message="Esto es un mensaje de ejemplo"
+              [buttons]="boton"
+  ></ion-alert>
+
+  <ion-button (click)="funcionAlerta()" expand="block" fill="outline" shape="round" color="danger">
+    <ion-icon slot="end" name="alert-circle-outline"></ion-icon>
+    Alerta
+  </ion-button>
+  <br><br><br>
+  <ion-label>El valor del numero es: {{ numero }}</ion-label>
+  <br><br>
+  <ion-label>El valor del numero2 es: {{ numero2 }}</ion-label>
+  <br><br>
+  <ion-button (click)="incrementar()">
+    <ion-icon slot="icon-only" name="add"></ion-icon>
+  </ion-button>
+  <!-- Crear un boton que decremente en 1 el valor de la variable numero
+    con icono - y color rojo 
+  -->
+    
+  <ion-button (click)="decrementar()">
+    <ion-icon slot="icon-only" name="remove-circle"></ion-icon>
+  </ion-button>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Alerta</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
