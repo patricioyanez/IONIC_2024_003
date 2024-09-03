@@ -20,6 +20,7 @@ export class CincoPage implements OnInit {
   constructor(private alertController: AlertController) {
     this.numero = 0;
     console.log(this.asignaturas);
+    console.table(this.asignaturas);
 
    }
 
