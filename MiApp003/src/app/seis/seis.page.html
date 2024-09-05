@@ -21,11 +21,40 @@
       <ion-col size="3">Mensaje</ion-col>
       <ion-col size="9">{{mensaje}} </ion-col>
     </ion-row>
+    <!-- 
+      agregar 1 fila que tenga 3 botones para:
+      agregar, modificar y eliminar. Mostrar iconos acordes a la acción
+    -->
+    <ion-row>
+      <ion-col size="4">
+        <ion-button color="success" expand="block">
+          <ion-icon slot="start" name="add"></ion-icon>Agregar
+        </ion-button>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button color="danger" expand="block">
+          <ion-icon slot="start" name="remove"></ion-icon>Eliminar
+        </ion-button>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button color="warning" expand="block">
+          <ion-icon slot="start" name="pencil"></ion-icon>Modificar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    
   </ion-grid>
-  <!-- 
-    agregar 1 fila que tenga 3 botones para:
-    agregar, modificar y eliminar. Mostrar iconos acordes a la acción
-  -->
+
+  <br><br><br>
+  <h1>Listado de asignaturas</h1>
+  <ion-list>
+    <ion-item *ngFor="let asignatura of asignaturas">
+      <ion-label>{{ asignatura.nombre }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+
+
 </ion-content>
 
 <ion-footer>
