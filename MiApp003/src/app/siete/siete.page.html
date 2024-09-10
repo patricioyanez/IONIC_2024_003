@@ -26,11 +26,11 @@
 <h1>Calculadora</h1>
 <ion-item>
   <ion-label>Numero 1</ion-label>
-  <input type="text" [(ngModel)]="n1">
+  <input type="number" [(ngModel)]="n1">
 </ion-item>
 <ion-item>
   <ion-label>Numero 2</ion-label>
-  <input type="text" [(ngModel)]="n2">
+  <input type="number" [(ngModel)]="n2">
 </ion-item>
 <ion-button (click)="sumar()">
   <ion-icon slot="icon-only" name="add"></ion-icon>
@@ -44,5 +44,8 @@
 <ion-footer>
   <ion-toolbar>
     <ion-title>Toast y Directiva</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-footer>
