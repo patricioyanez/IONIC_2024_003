@@ -9,7 +9,7 @@ export class SeisPage implements OnInit {
   nombre:string;
   apellido:string;
   mensaje : string = "Ud es un super estudiante 2024";
-
+  permitir : boolean = false;
   asignaturas = [
     {nombre : "PGY4121", nota: 39.5},
     {nombre : "mdy3121", nota: 50},
@@ -25,6 +25,10 @@ export class SeisPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+  mostrar()
+  {
+    this.permitir = !this.permitir;
   }
 
 }

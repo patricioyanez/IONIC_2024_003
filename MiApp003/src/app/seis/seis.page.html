@@ -46,16 +46,22 @@
   </ion-grid>
 
   <br><br><br>
-  <h1>Listado de asignaturas</h1>
-  <ion-list>
-    <ion-item *ngFor="let asignatura of asignaturas">
-      <ion-label>{{ asignatura.nombre | uppercase  }}</ion-label>
-      <ion-label>{{ asignatura.nombre | lowercase | slice:0:3  }}</ion-label>
-      <ion-label>{{ asignatura.nombre.substring(3,7) }}</ion-label>
-      <ion-label>{{ asignatura.nota | number:'1.0-0'  }}</ion-label>
-    </ion-item>
-  </ion-list>
-
+  <ion-button (click)="mostrar()">
+    <ion-icon slot="start" name="eye"     *ngIf="!permitir"></ion-icon>
+    <ion-icon slot="start" name="eye-off" *ngIf="permitir"></ion-icon>
+    
+  </ion-button>
+  <ion-text color="primary" *ngIf="permitir">
+    <h1>Listado de asignaturas</h1>
+    <ion-list>
+      <ion-item *ngFor="let asignatura of asignaturas">
+        <ion-label>{{ asignatura.nombre | uppercase  }}</ion-label>
+        <ion-label>{{ asignatura.nombre | lowercase | slice:0:3  }}</ion-label>
+        <ion-label>{{ asignatura.nombre.substring(3,7) }}</ion-label>
+        <ion-label>{{ asignatura.nota | number:'1.0-0'  }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-text>
 
 
 </ion-content>
