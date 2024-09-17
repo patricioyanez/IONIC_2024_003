@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ocho.page.scss'],
 })
 export class OchoPage implements OnInit {
-
+  mostrar: boolean = false;
   constructor() { }
 
   ngOnInit() {
   }
-
+  verModal()
+  {
+    this.mostrar = !this.mostrar;
+  }
 }
