@@ -8,7 +8,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-<ion-text color="primary">
-  <h1>El valor recibido es: {{ valorParametro1 }}.-</h1>
+<ion-text color="primary" *ngIf="valorParametro1">
+  <h1>El valor recibido por url es: {{ valorParametro1 }}.-</h1>
+</ion-text>
+<ion-text color="danger" *ngIf="valorParametro2">
+  <h1>El valor del parametro id es: {{ valorParametro2 }}.-</h1>
 </ion-text>
 </ion-content>

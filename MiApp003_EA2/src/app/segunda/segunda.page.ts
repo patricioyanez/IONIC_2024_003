@@ -14,6 +14,10 @@ export class SegundaPage implements OnInit {
   ngOnInit() {
     this.valorParametro1 = this.activatedRoute.snapshot.paramMap.get("num");
 
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.valorParametro2 = params.get("id");
+    })
+
   }
 
 }
