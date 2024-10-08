@@ -35,7 +35,14 @@ export class TerceraDetallePage implements OnInit {
       const id = Number(x.get("id"));
       this.persona = this.personas.find(xx => xx.id == id);
       console.table(this.persona);
-    })
+    });
   }
+  si()
+  {
 
+  }
+  no()
+  {
+    
+  }
 }
