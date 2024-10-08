@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastController, AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-tercera-detalle',
   templateUrl: './tercera-detalle.page.html',
@@ -28,7 +29,10 @@ export class TerceraDetallePage implements OnInit {
     }
   ]
   persona: any;
-  constructor(private activatedRoute:ActivatedRoute) { }
+  constructor(private activatedRoute:ActivatedRoute,
+    private alertController: AlertController,
+    private toastController: ToastController
+    ) { }
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe( x =>{
@@ -37,12 +41,26 @@ export class TerceraDetallePage implements OnInit {
       console.table(this.persona);
     });
   }
-  si()
+  async si()
   {
-
+    const alert = await this.alertController.create({
+      header: 'Atención',
+      subHeader: 'Mensaje importante',
+      message: 'Te agrado la persona de la imagen',
+      buttons: ['Aceptar']
+    });
+    await alert.present();
   }
-  no()
+  async no()
   {
-    
+    const toast = await this.toastController.create({
+      header: 'Atención',
+      message: 'NO Te agrado la persona de la imagen',
+      icon: 'close-circle-outline',
+      duration: 2000,
+      color: 'danger',
+      buttons: ['Aceptar']
+    });
+    await toast.present();
   }
 }
