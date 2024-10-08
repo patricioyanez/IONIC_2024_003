@@ -24,7 +24,7 @@ const routes: Routes = [
     loadChildren: () => import('./tercera/tercera.module').then( m => m.TerceraPageModule)
   },
   {
-    path: 'tercera-detalle',
+    path: 'tercera-detalle/:id',
     loadChildren: () => import('./tercera-detalle/tercera-detalle.module').then( m => m.TerceraDetallePageModule)
   },
 ];
