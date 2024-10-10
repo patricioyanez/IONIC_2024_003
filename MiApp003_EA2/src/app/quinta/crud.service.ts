@@ -7,13 +7,17 @@ export class CrudService {
 
   constructor() { }
 
-  async guardar(id:string, valor:any )
+  async guardar(id:string, valor:[] )
   {
-    localStorage.setItem(id, valor);
+    localStorage.setItem(id, JSON.stringify({...valor}));
   }
   async leer(id: string)
   {
-    return localStorage.getItem(id);
+    let temp = localStorage.getItem(id);
+    if(temp != null)
+      return JSON.parse(temp);
+    else
+      return null;
   }
   async eliminar(id: string)
   {
@@ -21,6 +25,6 @@ export class CrudService {
   }
   async listar()
   {
-    
+
   }
 }
