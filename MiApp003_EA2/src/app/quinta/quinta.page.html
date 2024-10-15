@@ -38,8 +38,9 @@
     <ion-fab-list side="top">
       <ion-fab-button (click)="guardar()"><ion-icon name="save"></ion-icon></ion-fab-button>
       <ion-fab-button (click)="leer()"><ion-icon name="search"></ion-icon></ion-fab-button>
-      <ion-fab-button><ion-icon name="trash"></ion-icon></ion-fab-button>
+      <ion-fab-button><ion-icon name="close"></ion-icon></ion-fab-button>
       <ion-fab-button><ion-icon name="list"></ion-icon></ion-fab-button>
+      <ion-fab-button (click)=limpiar()><ion-icon name="trash"></ion-icon></ion-fab-button>
     </ion-fab-list>
   </ion-fab>
 </ion-content>

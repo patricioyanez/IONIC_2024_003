@@ -15,9 +15,17 @@ export class QuintaPage implements OnInit {
   guardar()
   {
     this.crudService.guardar(this.persona.rut, this.persona);
+    this.limpiar();
   }
   async leer()
   {
     this.persona = await this.crudService.leer(this.persona.rut);
+  }
+  limpiar()
+  {
+    this.persona = [];
+    const input = document.querySelector('ion-input');
+    if(input != null)
+      input.setFocus();
   }
 }
