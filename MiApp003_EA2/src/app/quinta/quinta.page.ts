@@ -8,12 +8,15 @@ import { CrudService } from './crud.service';
 })
 export class QuintaPage implements OnInit {
   persona:any = [];
+  personas:any = [];
   constructor(private crudService:CrudService) { }
 
   ngOnInit() {
   }
   guardar()
-  {
+  {    
+    // Ejercicio 22: validar que los datos no esten en blanco 
+    // alertController (error) y toast (guardado)
     this.crudService.guardar(this.persona.rut, this.persona);
     this.limpiar();
   }
@@ -27,5 +30,14 @@ export class QuintaPage implements OnInit {
     const input = document.querySelector('ion-input');
     if(input != null)
       input.setFocus();
+  }
+  async eliminar()
+  {
+    this.crudService.eliminar(this.persona.rut);
+    this.limpiar();
+  }
+  async listar()
+  {
+    this.personas = await this.crudService.listar();
   }
 }
