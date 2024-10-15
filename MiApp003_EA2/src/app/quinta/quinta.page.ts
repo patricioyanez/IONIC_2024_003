@@ -18,23 +18,48 @@ export class QuintaPage implements OnInit {
 
   ngOnInit() {
   }
-  guardar()
+  async guardar()
   {    
     // Ejercicio 22: validar que los datos no esten en blanco 
     // alertController (error) y toast (guardado)
     if(this.persona.rut == null)
-    {
-      this.mensajeError('Falta especificar el rut');
-    }
-    else if (this.persona.nombre == null)
-    {
-      this.mensajeError('falta especificar el nombre');
-    }
-    else
-    {
-      this.crudService.guardar(this.persona.rut, this.persona);
-      this.limpiar();
-    }
+      {
+        this.mensajeDeError('Falta especificar el rut');
+      }
+      else if(this.persona.nombre == null)
+      {
+        this.mensajeDeError('Falta especificar el nombre');
+      }
+      else if(this.persona.direccion == null)
+      {
+        this.mensajeDeError('Falta especificar la dirección');
+      }
+      else if(this.persona.correo == null)
+      {
+        this.mensajeDeError('Falta especificar el correo');
+      }
+      else if(this.persona.telefono == null)
+      {
+        this.mensajeDeError('Falta especificar el teléfono');
+      }
+      else if(this.persona.anio == null || this.persona.anio < 1900)
+      {
+        this.mensajeDeError('El año ingresado no es correcto');
+      }
+      else
+      {
+        this.crudService.guardar(this.persona.rut, this.persona);
+        const toast = await this.toastController.create({
+          header  : "Resultado",
+          message : "Datos Guardados",
+          icon    : 'checkmark-circle-outline',
+          color   : 'success',
+          duration: 2000,
+          position: 'middle'
+        });
+        await toast.present();
+        this.limpiar();
+      }
   }
   async leer()
   {
@@ -51,20 +76,34 @@ export class QuintaPage implements OnInit {
   async eliminar()
   {
     this.crudService.eliminar(this.persona.rut);
+    const toast = await this.toastController.create({
+      header  : "Resultado",
+      message : "El rut " + this.persona.rut + " fue eliminado." ,
+      icon    : 'trash-outline',
+      color   : 'success',
+      duration: 2000,
+      position: 'middle'
+    });
+    await toast.present();
     this.limpiar();
-  }
-  async listar()
-  {
-    this.personas = await this.crudService.listar();
-  }
-  async mensajeError(mensaje:string)
+  }  
+  async mensajeDeError(mensaje:string)
   {
     const alerta = await this.alertController.create({
       header    : "Error",
       subHeader : "Mensaje del error",
       message   : mensaje,
-      buttons   : ['Aceptar']
+      buttons   : ['Aceptar'] 
     });
     await alerta.present();
+  }
+  /*
+  Ejercicio 24: Listar todos los elementos guardados en el
+  storage
+
+  */
+  async listar()
+  {
+    this.personas = await this.crudService.listar();
   }
 }
