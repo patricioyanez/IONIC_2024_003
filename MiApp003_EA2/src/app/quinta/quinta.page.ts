@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from './crud.service';
+import { AlertController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-quinta',
@@ -9,7 +10,11 @@ import { CrudService } from './crud.service';
 export class QuintaPage implements OnInit {
   persona:any = [];
   personas:any = [];
-  constructor(private crudService:CrudService) { }
+
+  constructor(private crudService:CrudService,
+    private alertController: AlertController,
+    private toastController: ToastController
+) { }
 
   ngOnInit() {
   }
@@ -17,8 +22,19 @@ export class QuintaPage implements OnInit {
   {    
     // Ejercicio 22: validar que los datos no esten en blanco 
     // alertController (error) y toast (guardado)
-    this.crudService.guardar(this.persona.rut, this.persona);
-    this.limpiar();
+    if(this.persona.rut == null)
+    {
+      this.mensajeError('Falta especificar el rut');
+    }
+    else if (this.persona.nombre == null)
+    {
+      this.mensajeError('falta especificar el nombre');
+    }
+    else
+    {
+      this.crudService.guardar(this.persona.rut, this.persona);
+      this.limpiar();
+    }
   }
   async leer()
   {
@@ -40,5 +56,15 @@ export class QuintaPage implements OnInit {
   async listar()
   {
     this.personas = await this.crudService.listar();
+  }
+  async mensajeError(mensaje:string)
+  {
+    const alerta = await this.alertController.create({
+      header    : "Error",
+      subHeader : "Mensaje del error",
+      message   : mensaje,
+      buttons   : ['Aceptar']
+    });
+    await alerta.present();
   }
 }
