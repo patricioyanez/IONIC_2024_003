@@ -27,6 +27,7 @@ export class QuintaPage implements OnInit {
   limpiar()
   {
     this.persona = [];
+    this.personas = [];
     const input = document.querySelector('ion-input');
     if(input != null)
       input.setFocus();
