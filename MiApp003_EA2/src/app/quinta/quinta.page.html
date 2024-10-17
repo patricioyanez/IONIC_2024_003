@@ -36,7 +36,7 @@
     <br>
     <h1>Listado de usuarios</h1>
     <ion-grid fixed >
-      <ion-row *ngFor="let p of personas">
+      <ion-row *ngFor="let p of personas" (click)="leer2(p.rut)">
         <ion-col size="3">{{p.rut}}</ion-col>
         <ion-col size="3">{{p.nombre}}</ion-col>
         <ion-col size="3">{{p.correo}}</ion-col>

@@ -65,6 +65,10 @@ export class QuintaPage implements OnInit {
   {
     this.persona = await this.crudService.leer(this.persona.rut);
   }
+  async leer2(id:string)
+  {
+    this.persona = await this.crudService.leer(id);
+  }
   limpiar()
   {
     this.persona = [];
@@ -106,4 +110,9 @@ export class QuintaPage implements OnInit {
   {
     this.personas = await this.crudService.listar();
   }
+    /*
+  Ejercicio 25: en la lista, agregar link para cargar los
+  datos en el formulario
+
+  */
 }
