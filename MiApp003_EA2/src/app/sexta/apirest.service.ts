@@ -19,4 +19,9 @@ export class ApirestService {
     const ruta = this.urlBase + 'users';
     return await firstValueFrom(this.httpClient.get(ruta));
   }
+  async getPostsByIdUser(id:string)
+  {
+    const ruta = this.urlBase + '/users/' + id + '/posts';
+    return await firstValueFrom(this.httpClient.get(ruta));
+  }
 }
