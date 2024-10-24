@@ -19,6 +19,7 @@ pc y android
 
 
 */
+  texto:any;
   constructor() { }
 
   ngOnInit() {
